@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static%}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+    <title>Portfolio</title>
+    <style>
+        
+        *{
+            font-family: 'Rubik', sans-serif;
+            line-height:1.6;
+            padding:0px;
+            margin: 0px;
+
+        }
+        body{
+            background-color:{{bg.bodybg}};
+            color:{{bg.bodytxt}};
+        }
+        .nav{
+                display: none;
+            }
+           
+        ul{
+            list-style-type: none;
+            padding: 1.5%;
+            background-color:{{bg.col}};
+            border-style: solid;
+            border-color:{{bg.NavCont}};
+        }
+        ul>li{
+            display: inline;
+            padding-right: .7%;
+            color:{{bg.NavCont}};
+        }
+        .navbar {
+           overflow: hidden;
+           position: fixed;
+           top: 0;
+           width: 100%;
+}
+        
+
+        li a{
+            color:{{bg.NavCont}};
+            text-decoration: none;
+            font-size: 150%;
+
+        }
+        #uni{
+            margin-right:14%;
+            font-size: 200%;
+            font-weight: bold;
+        }
+        .home{
+            display: block;
+
+            font-size: 150%;
+            display: flex;
+            background-image: url("/media/{{hm.img1}}");
+            background-position: center;
+            background-size: auto;
+            height: 85vh;
+            background-repeat: no-repeat;
+        }
+        .home1{
+            text-align: center;
+            color: {{bg.iamtext}};
+            margin-top: 330px;
+            margin-left: 96px;
+            padding-top: 2px;
+            font-size: 1.2em;
+            padding: 0% 0% 0% 0%;
+
+            
+           
+        }
+        .about,.skills,.certi,.contact{
+            font-size: 110%;
+            border: 2px solid {{bg.col}};
+
+        
+        }
+        
+        #abt{
+            text-align: center;
+            padding-top: 96px;
+            padding-bottom: 68px;
+            font-size: 200%;
+        }
+        .abcont{
+            padding-left: 8%;
+            padding-right: 8%;
+            display: inline;
+
+        }
+        #abimg{
+            width: 607px;
+    height: 472px;
+    float: left;
+    padding-left: 0px;
+    padding-right: 40px;
+    object-fit: cover;
+    border-radius: 142px;
+
+        }
+        #abp{
+            padding-right: 90px;
+    padding-left: 646px;
+    padding-top: 0px;
+        }
+
+        .skll{
+            display: flex;
+            padding-left: 42px;
+            padding-right: 146px;
+        }
+        #skp{
+            padding-top: 67px;
+            padding-right: 94px;
+            padding-left: 99px;
+        }
+        .progress {
+            background:{{bg.bodybg}};
+            width: 300px;
+            height:9px;
+            margin-top: 14px;
+            border-radius: 15px;
+            padding-right: 2px;
+            font-size:40%;
+	
+}
+
+.progress-done1 {
+    background:{{bg.bodybg}};
+    border-radius: 15px;
+    text-align: center;
+    color: {{bg.bodybg}};
+}
+
+.txt{
+    display: flex;
+    font-size:0.9;
+}
+.certidiv{
+    padding-left: 310px;
+    padding-right: 2px;
+    padding-top: 100px;
+}
+.certidiv>img{
+    width: 800px;
+    height: 500px;
+}
+
+
+.certidiv1{
+    padding-left: 310px;
+    padding-right: 2px;
+    padding-top: 100px;
+}
+.certidiv1>img{
+    width: 800px;
+    height: 500px;
+}
+
+
+
+.prev{
+    cursor: pointer;
+    position: initial;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    padding: 0% 2% 0% 2%;
+    margin: 0% 0% 0% 15%;
+    color: {{bg.next}};
+
+
+}
+.next{
+    cursor: pointer;
+    position: initial;
+    padding: 0% 2% 0% 2%;
+    margin: 0% 0% 0% 63%;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    color: {{bg.next}};
+
+}
+
+
+
+
+.prev:hover, .next:hover {
+    background-color: {{bg.nextbg}};
+    color: {{bg.nexthov}};
+}
+
+
+
+   
+
+
+.dot{
+    cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+.active, .dot:hover{
+    background-color: {{bg.next}}
+}
+
+
+
+.certip{
+    text-align: center;
+    padding-right: 320px;
+}
+#cerp{
+    padding:2px 86px 11px 121px;
+}
+.contactform{
+            border: 2px solid {{bg.col}};
+            padding:30px 0px 32px 64px;
+            margin:1px 186px 75px 323px;
+        }
+#contsub{
+    padding: 11px 24px 10px 23px;
+    margin: 0px 0px 0px 303px;
+    background-color:{{bg.col}};
+    color:{{bg.NavCont}};
+    border-radius: 12px;
+    text-align: center;
+    font-size: large;
+}
+.cnp{
+    height: 131px;
+    background-color: {{bg.col}};
+    padding: 0px 0px 0px 0px;
+    margin: 0px 183px 0px 322px;
+    color: {{bg.NavCont}};
+    text-align: center;
+    font-size: 185%;
+
+}
+.conlinks{
+    padding: 0% 0% 0% 0%;
+    margin: 0% 0% 0% 0%;
+    display: inline-block;
+
+}
+#msg{
+    width: 95%;
+}
+footer{
+    background-color: {{bg.footerbg}};
+    padding: 0% 0% 0% 0%;
+    margin: 0% 0% 0% 0%;
+    text-align: center;
+    color: {{bg.footertext}} ;
+
+}
+
+
+.footerdiv{
+    padding: 0% 0% 0% 0%;
+}
+        @media only screen and (max-width: 1100px) {
+            
+            .navbar {
+                  display: none;
+
+            }
+            .inpd{
+                padding-top:8%;
+            }
+            
+            .home{
+                display: block;
+    background-image: url("/media/{{hm.imgmob}}");
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+        .home1{
+            text-align: center;
+            padding: 215px 0px 0px 0px;
+            margin: -4px 0px 0px 0px ;
+            font-size: 0.5em;
+            
+           
+        }
+
+        
+        .nav{
+                position: fixed;
+                display: block;
+                background: {{bg.col}};
+                color: white;
+                margin: 0% 0% 0% 0%;
+                padding: 0% 0% 0% 0%;
+                width: 100%;
+            }
+        .nav span{
+            margin: 0% 0% 0% 0%;
+            padding: 0% 0% 0% 4%;
+            font-size: 2em;
+            font-weight: bold;
+            
+        }
+        .nvtog{
+                font-size: 30px;
+                cursor: pointer;
+                display: block;
+                margin: 0% 0% 0% 0%;
+                padding: 0% 0% 0% 91%;
+
+            }
+        
+        .nava{
+            text-align: center;
+            width: 100%;
+            display: none;
+            padding: 20% 0% 0% 0%;
+            margin: 0% 0% 0% 0%;
+
+        }
+        .nava a{
+             text-decoration: none;
+              display: block;
+              margin-bottom: 23px;
+              font-size: 120%;
+              color: white;
+        }
+        #toggle:checked + .nava {
+            display: block;
+            background-color: black;
+            height: 410px;
+
+        }
+        .about{
+            display: block;
+            font-size: 100%;
+        }
+        #abp{
+            display: block;
+        }
+        #abimg{
+            display: block;
+            height: 436px;
+            width: 322px;
+            border-radius: 0%;
+            margin-left: auto;
+            margin-right: 24%;
+
+        }
+        .abcont{
+            padding-left: 0%;
+            padding-right: 0%;
+            display: block;
+
+        }
+       
+        #abp{
+            padding-right: 0%;
+           padding-left: 0%;
+           padding-top: 0%;
+           margin: 58% 6% 3% 4%;
+        }
+        .skll{
+            display: block;
+            padding-left: 1px;
+            padding-right: 1px;
+            margin: 0% 8% 0% 4%;
+        }
+        #skp{
+            padding-top: 30px;
+            padding-right: 7px;
+            padding-left: 9px;
+            margin: 0% 0% 20% 0%;
+        }
+        .progress {
+            width: 300px;
+            height: 9px;
+            padding-bottom:2px ;
+            border-radius: 15px;
+            padding-right: 2px;
+	
+}
+
+.progress-done1 {
+    width: 185px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.txt{
+    display: flex;
+}
+.certidiv{
+    padding-left: 0px;
+    padding-right: 2px;
+    padding-top: 0px;
+    align-content: center;
+
+}
+
+.certidiv1{
+    padding-left: 0px;
+    padding-right: 2px;
+    padding-top: 0px;
+    align-content: center;
+
+}
+.certidiv>img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+}
+
+.certidiv1>img{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  height: 300px;
+}
+
+
+
+
+
+.dot{
+    cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.active, .dot:hover{
+    background-color: {{bg.next}}
+}
+
+.certip{
+    text-align: center;
+    padding-right: 14px;
+}
+#cerp{
+    padding:2px 20px 11px 21px;
+}
+.contactform{
+            border: 2px solid {{bg.col}};
+            padding:30px 0px 32px 6px;
+            margin:1px 1px 7px 3px;
+        }
+#contsub{
+    padding: 11px 24px 10px 23px;
+    margin: 0px 0px 0px 100px;
+    background-color:{{bg.col}};
+    color:white;
+    border-radius: 12px;
+    text-align: center;
+    font-size: large;
+}
+.cnp{
+    height: 107px;
+    width: 100%;
+    background-color: {{bg.col}};
+    padding: 0px 0px 2px 0px;
+    margin: 0px 0px 0px 3px;
+    color: white;
+    text-align: center;
+    font-size: 200%;
+
+}
+.conlinks{
+    padding: 0% 0% 0% 0%;
+    margin: 0% 0% 0% 0%;
+    display: inline-block;
+
+}
+#msg{
+    width: 95%;
+}
+        }
+
+        @media only screen and (min-width: 600px)
+        {
+#abimg {
+    display: block;
+    height: 588px;
+    width: 441px;
+    border-radius: 0%;
+    margin-left: 30%;
+    margin-right: 4%;
+}
+        }
+ @media only screen and (max-width: 1400px) and (min-width: 800px)  {
+
+        #uni{
+    margin-right: 3%;
+    font-size: 200%;
+    font-weight: bold;
+}
+ }
+
+ @media only screen and (min-width: 700px) and (max-width:1100px) {
+    .home {
+    display: block;
+    background-image: url(/media/myweb/images/Cream_Wedding_Illustration.png);
+    background-size: cover;
+    background-position: center;
+    height: 647px;
+    width: 100%;
+    background-repeat: no-repeat;
+}
+.home1 {
+    text-align: center;
+    padding: 493px 0px 0px 0px;
+    margin: -4px 0px 0px 0px;
+    font-size: 0.5em;
+}
+ }
+ 
+@media only screen and (min-width: 1000px) {
+    
+    #abimg{
+    width: 607px;
+    height: 472px;
+    float: left;
+    padding-left: 0px;
+    padding-right: 40px;
+    object-fit: cover;
+    border-radius: 142px;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+
+
+
+    .prev{
+    cursor: pointer;
+    position: initial;
+    font-weight: bold;
+    width: 100%;
+    margin: 0% 0% 0% 15%;
+    padding: 0% 1% 0% 1%;
+
+    text-align: center;
+
+}
+.next{
+    cursor: pointer;
+    position: initial;
+    padding: 0% 1% 0% 1%;
+    margin: 0% 0% 0% 63%;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+
+
+
+}
+
+
+       
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <span>Raksha's Portfolio</span>
+        <label class="nvtog" for="toggle">&#9776;</label>
+        <input style="display: none;" type="checkbox" id="toggle" />
+        
+    <div class="nava">
+        <a  href="#home">Home</a>
+        <a  href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certi">Certifications</a>
+        <a href="#contact">Contact</a></div>
+        </div>
+    </br>
+</br>
+</br>
+</br>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="navbar">
+        <ul class="sec">
+            <li id="uni"><a href="#">Raksha's Portfolio</a></li>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color:black"width="35" height="35" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                <path d="M6.5 10.995V14.5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-7a.5.5 0 0 1 .146-.354l6-6a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 .146.354v7a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1-.5-.5V11c0-.25-.25-.5-.5-.5H7c-.25 0-.5.25-.5.495z"/>
+                <path fill-rule="evenodd" d="M13 2.5V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              </svg>
+              
+            <li><a href="#home">Home</a></li>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="35" height="35" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2 2a2 2 0 0 1 2-2h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm7.5 1.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755S12 12 8 12s-5 1.755-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z"/>
+              </svg>
+            <li><a href="#about">About me</a></li>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="35" height="35" fill="currentColor" class="bi bi-award-fill" viewBox="0 0 16 16">
+                <path d="M8 0l1.669.864 1.858.282.842 1.68 1.337 1.32L13.4 6l.306 1.854-1.337 1.32-.842 1.68-1.858.282L8 12l-1.669-.864-1.858-.282-.842-1.68-1.337-1.32L2.6 6l-.306-1.854 1.337-1.32.842-1.68L6.331.864 8 0z"/>
+                <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z"/>
+              </svg>
+            <li><a href="#skills">Skills</a></li>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="35" height="35" fill="currentColor" class="bi bi-patch-check-fll" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984a.5.5 0 0 0-.708-.708L7 8.793 5.854 7.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/>
+              </svg>
+            <li><a href="#certi">Certifications</a></li>
+            <svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="35" height="35" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+              </svg>
+            <li><a href="#contact">Contact me</a></li>
+        </ul>
+    </div>
+
+
+
+    <section class='home' id="home">
+        <div class='home1'>
+        <h1>Hy People ! It's me, Raksha</h1>
+        <h2 >&nbsp &nbsp &nbsp &nbsp I am a <span class='typing'></span></h2>
+        </div>
+       
+</section>
+<hr>
+
+    <section class="about" id="about">
+    </br>
+</br>
+</br>
+
+    <h1 id="abt">About me</h1>
+    <div class="abimgc">
+        <img id="abimg" src="/media/{{abimg}}" alt="">
+    </div>
+        <div class="abcont">
+
+    <p id="abp">{{about}}
+    </p>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+</div>
+    </section>
+    <hr>
+
+    <section class="skills" id="skills">
+    </br>
+</br>
+</br>
+        <h1 id="abt">Skills</h1>
+      <div class="skll">
+          <div class="sktxt">
+          <p id="skp">{{skill}}
+            
+          </p>
+          <p id="skp" style="padding-top:0px ;">Here i've rated myself in the fields i've learnt so far :-</p>
+        </div>
+
+          <div class="skprbr">
+             <div class="txt">
+                  <span> &nbsp; &nbsp; &nbsp;</span>
+            <div class="progress">
+                <div class="progress-done1" data-done="75">
+                </div>
+            </div>
+        </div> 
+        </br>
+       
+            {% for i in pr %}
+          <label style="float: left;"for="file">{{i.name}}: </label>
+           
+            <progress id="file" value="{{i.progress}}" max="100"> </progress><span style="font-size:70%">{{i.progress}}%</span></br></br>
+
+          {% endfor %}
+          </div>
+          
+          
+
+        
+      </div>
+
+
+
+
+     
+    </br>
+</br>
+</br>
+</br>
+</br>
+
+        </section>
+        <hr>
+
+    
+
+
+
+    <section class="certi" id="certi">
+    </br>
+</br>
+</br>
+        <h1 id="abt">Certifications</h1>
+        <p id="cerp">{{certi}}</p>
+        <div>
+            {% for i in ph  %}
+        <div class="certidiv">
+            
+            <img src="/media/{{i.image}}" alt="">
+            <p class="certip">{{i.desc}}</p>
+           
+        </div>
+        {% endfor %}
+
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+        
+    <div style="text-align:center">
+        {% for i in k %}
+        <span class="dot" onclick="currentSlide({{i}})">
+        </span>
+        {% endfor %}
+
+       
+      </div>
+
+    </br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+</br>
+
+
+    </section>
+    <hr>
+
+
+
+
+
+    <section class="contact" id="contact">
+    </br>
+</br>
+</br>
+
+        <h1 id="abt">Contact me</h1>
+        <p class="cnp"></br>Contact form</br></br></br></p>
+
+        <div class="contactform">
+            <form action={% url 'thanks' %} method="post" >{%csrf_token%}
+                <label for="name">Name *</label></br>
+                <input type="text" name="name" id="name" style="width: 250px; height: 25px;"  required placeholder="Enter your name here"></br>
+            </br>
+                <label for="email">Email *</label></br>
+                <input type="email" name="email" id="email" style="width: 250px; height: 25px;" required placeholder="Enter your email here"></br>
+        </br>
+                <label for="mssg">Message *</label></br>
+                <textarea name="msg" id="msg" cols="100" rows="10" required></textarea></br>
+    </br>
+    <input id="contsub" type="submit" value="Submit">
+                </form>
+
+        </div>
+        
+</br>
+</br>
+</br>
+</br>
+
+
+    </section>
+
+
+
+
+   
+    <footer>
+        <div class="conlinks">
+            <div class="footerdiv" ><p style="text-align: center;"> Thanks for visiting my portfolio &nbsp; &nbsp;</p>
+                </div>
+            <div class="footerlinks">
+                
+            <a href="https://github.com/raksha27yadav" target=_blank> <svg xmlns="http://www.w3.org/2000/svg" style="color: {{bg.footersvg}}; margin-right:5%" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                 <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+               </svg></a>
+             <a href="https://www.linkedin.com/in/raksha-yadav-546410185/" target=_blank><svg xmlns="http://www.w3.org/2000/svg" style="color: {{bg.footersvg}};margin-right:5%" width="20" height="20" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                 <path fill-rule="evenodd" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212h-2.4s.03-6.547 0-7.225h2.4v1.023a5.54 5.54 0 0 0-.016.025h.016v-.025c.32-.493.89-1.193 2.165-1.193 1.58 0 2.764 1.033 2.764 3.252v4.143h-2.4V9.529c0-.972-.348-1.634-1.217-1.634-.664 0-1.059.447-1.233.878-.063.154-.079.37-.079.586v4.035z"/>
+               </svg></a>
+            </br>
+               <svg xmlns="http://www.w3.org/2000/svg" style="padding-top:2%" width="20" height="20" fill="currentColor" style="color: {{bg.footersvg}};" class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+              </svg> /raksha.yad27@gmail.com 
+             
+            
+            </div>
+            
+         </div>
+        </br>
+
+
+    </footer>
+
+
+
+
+
+
+
+
+    <script>
+        
+        
+  var typed = new Typed('.typing', {
+  strings: {{ am|safe }},
+  typeSpeed: 30,
+  loop:true
+});
+var index=1
+finalrun(index)
+   function plusSlides(n) {
+       finalrun(index+=n)
+   }
+   function currentSlide(n) {
+       finalrun(index=n)
+       
+   }
+   function finalrun(n) {
+       var i;
+       var slides=document.getElementsByClassName('certidiv')
+       var dots=document.getElementsByClassName('dot')
+       if (n>slides.length) {
+           index=1
+       }
+       if (n<1) {
+           index=slides.length
+       }
+       for (let i = 0; i < slides.length; i++) {
+           slides[i].style.display="none";
+           
+       }
+       for (let i = 0; i < dots.length; i++) {
+           dots[i].className=dots[i].className.replace("active","")
+           
+       }
+       console.log(dots[index],index,dots)
+       slides[index-1].style.display="block";
+       dots[index-1].className += " active";
+   }
+
+
+
+
+
+
+
+  
+    </script>
+</body>
+</html>
